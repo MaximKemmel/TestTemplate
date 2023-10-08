@@ -3,12 +3,729 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TestTemplate"
+        xmlns:local="clr-namespace:TestTemplate"        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="450" 
-        Width="800"> 
-    <Grid>
-        
-    </Grid>
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" 
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="#F3F3F3"
+        Height="800" 
+        Width="1400">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="15 10 15 10"
+          Background="#F3F3F3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0"
+              Margin="0 5 0 5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Label VerticalAlignment="Center"
+                   FontSize="24" 
+                   FontFamily="{StaticResource RobotoMedium}"
+                   Foreground="Black">
+                    0129874 - Adolf Stanmayer
+                </Label>
+                <Button x:Name="btnEdit"
+                    Grid.Column="1"
+                    Margin="30 0 0 0"
+                    Background="#F3F3F3"
+                    Cursor="Hand" 
+                    materialDesign:ElevationAssist.Elevation="Dp0"
+                    BorderBrush="{x:Null}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Grid.Column="0"
+                                             Kind="Pencil"      
+                                             Foreground="#FF5245E5"
+                                             VerticalAlignment="Center"/>
+                        <Label Grid.Column="1"
+                           Margin="5 0 0 0"
+                           VerticalAlignment="Center"
+                           FontSize="14" 
+                           Foreground="#FF5245E5"
+                           FontFamily="{StaticResource RobotoRegular}">
+                            Bearbeiten
+                        </Label>
+                    </Grid>
+                </Button>
+                <Button x:Name="btnDelete"
+                    Grid.Column="2"
+                    Margin="20 0 0 0"
+                    Background="#F3F3F3"
+                    Cursor="Hand" 
+                    materialDesign:ElevationAssist.Elevation="Dp0"
+                    BorderBrush="{x:Null}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Grid.Column="0"
+                                             Kind="DeleteOutline"      
+                                             Foreground="#FF5245E5"
+                                             VerticalAlignment="Center"/>
+                        <Label Grid.Column="1"
+                           Margin="5 0 0 0"
+                           VerticalAlignment="Center"
+                           FontSize="14" 
+                           Foreground="#FF5245E5"
+                           FontFamily="{StaticResource RobotoRegular}">
+                            löschen
+                        </Label>
+                    </Grid>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <materialDesign:Card Grid.Column="0"
+                                 Background="White"
+                                 materialDesign:ElevationAssist.Elevation="Dp0"
+                                 BorderBrush="{x:Null}"
+                                 UniformCornerRadius="15">
+                    <Border Padding="15 10 15 10">
+                        <TabControl HorizontalContentAlignment="Left">
+                            <TabItem Header="Allgemein"
+                                 Height="40"
+                                 Margin="0 0 15 0">
+                                <Border Margin="-1 0 0 0" 
+                                    BorderThickness="0,1,0,0" 
+                                    BorderBrush="#F2F2F2">
+                                    <Grid Margin="0 30 0 0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0"
+                                          HorizontalAlignment="Left">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0"
+                                               Source="/assets/photo.png"
+                                               Height="75"
+                                               Width="75"/>
+                                            <Grid Grid.Column="1"
+                                              Margin="15 0 0 0"
+                                              VerticalAlignment="Bottom">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0"
+                                                   FontSize="24" 
+                                                   FontFamily="{StaticResource RobotoMedium}"
+                                                   Foreground="Black">
+                                                    Adolf Stanmayer
+                                                </Label>
+                                                <Grid Grid.Row="1"
+                                                  HorizontalAlignment="Left"
+                                                  Margin="0 10 0 0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Button x:Name="btnProfile"
+                                                        Grid.Column="0"
+                                                        Height="25"
+                                                        Width="25"
+                                                        Background="White"
+                                                        Cursor="Hand" 
+                                                        materialDesign:ElevationAssist.Elevation="Dp0"
+                                                        BorderBrush="{x:Null}"
+                                                        Padding="0">
+                                                        <materialDesign:PackIcon Kind="UserOutline"      
+                                                                             Foreground="Black"
+                                                                             VerticalAlignment="Center"
+                                                                             HorizontalAlignment="Left"
+                                                                             Width="16"
+                                                                             Height="16"/>
+                                                    </Button>
+                                                    <materialDesign:Card Grid.Column="1"
+                                                                     Margin="10 0 0 0"
+                                                                     Background="#27AE60"
+                                                                     Height="24"
+                                                                     Width="68"
+                                                                     materialDesign:ElevationAssist.Elevation="Dp0"
+                                                                     BorderBrush="{x:Null}"
+                                                                     UniformCornerRadius="3">
+                                                        <Label Grid.Row="0"
+                                                           FontSize="14"
+                                                           Foreground="White"
+                                                           FontFamily="{StaticResource RobotoRegular}"
+                                                           HorizontalAlignment="Center">
+                                                            Aktive
+                                                        </Label>
+                                                    </materialDesign:Card>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="1"
+                                          Margin="0 30 0 0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="75"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="75"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0"
+                                               FontSize="14" 
+                                               FontFamily="{StaticResource RobotoRegular}"
+                                               Foreground="#626262">
+                                                Adresse
+                                            </Label>
+                                            <Grid Grid.Column="1"
+                                              Margin="15 0 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Left"
+                                                   Foreground="Black">
+                                                    Ziegelfeld
+                                                </Label>
+                                                <Label Grid.Row="1"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Left"
+                                                   Margin="0 5 0 0"
+                                                   Foreground="Black">
+                                                    2A
+                                                </Label>
+                                                <Label Grid.Row="2"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Left"
+                                                   Margin="0 5 0 0"
+                                                   Foreground="Black">
+                                                    4626 Niederbuchsietten
+                                                </Label>
+                                                <Label Grid.Row="3"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Left"
+                                                   Margin="0 5 0 0"
+                                                   Foreground="Black">
+                                                    Schweiz
+                                                </Label>
+                                            </Grid>
+                                            <Grid Grid.Column="2">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   Foreground="#626262">
+                                                    Suchname
+                                                </Label>
+                                                <Label Grid.Row="1"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   Foreground="#626262"
+                                                   Margin="0 5 0 0">
+                                                    Anrede
+                                                </Label>
+                                            </Grid>
+                                            <Grid Grid.Column="3"
+                                              Margin="30 0 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Left"
+                                                   Foreground="Black">
+                                                    admin admin
+                                                </Label>
+                                                <Label Grid.Row="1"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Left"
+                                                   Margin="0 5 0 0"
+                                                   Foreground="Black">
+                                                    Herr
+                                                </Label>
+                                            </Grid>
+                                        </Grid>
+                                        <Separator Grid.Row="2"
+                                               Height="4"
+                                               Width="Auto"
+                                               HorizontalAlignment="Stretch"
+                                               VerticalAlignment="Bottom"                   
+                                               Background="#BCBCBC"
+                                               Margin="0 20 0 20"/>
+                                        <Grid Grid.Row="3"
+                                          Margin="0 0 0 30">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="75"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="75"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   Foreground="#626262">
+                                                    Telefon 1
+                                                </Label>
+                                                <Label Grid.Row="1"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   Foreground="#626262"
+                                                   Margin="0 5 0 0">
+                                                    Telefon 2
+                                                </Label>
+                                            </Grid>
+                                            <Grid Grid.Column="1"
+                                              Margin="15 0 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Left"
+                                                   Foreground="Black">
+                                                    +41792511522
+                                                </Label>
+                                                <Label Grid.Row="1"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Left"
+                                                   Margin="0 5 0 0"
+                                                   Foreground="Black">
+                                                    +41792511522
+                                                </Label>
+                                            </Grid>
+                                            <Grid Grid.Column="2">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   Foreground="#626262">
+                                                    E-Mail
+                                                </Label>
+                                                <Label Grid.Row="1"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   Foreground="#626262"
+                                                   Margin="0 5 0 0">
+                                                    Webseite
+                                                </Label>
+                                            </Grid>
+                                            <Grid Grid.Column="3"
+                                              Margin="30 0 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Left"
+                                                   Foreground="Black">
+                                                    qwdeqa@gmail.com
+                                                </Label>
+                                                <Label Grid.Row="1"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Left"
+                                                   Margin="0 5 0 0"
+                                                   Foreground="Black">
+                                                    www.sdgsdgsd.com
+                                                </Label>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="Konditionen"
+                                 Height="40"
+                                 Margin="0 0 15 0">
+                                <Border Margin="-1 0 0 0" 
+                                    BorderThickness="0,1,0,0" 
+                                    BorderBrush="#F2F2F2">
+                                    <Grid Margin="0 30 0 0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="Bankverbindungen" 
+                                 Height="40">
+                                <Border Margin="-1 0 0 0" 
+                                    BorderThickness="0,1,0,0" 
+                                    BorderBrush="#F2F2F2">
+                                    <Grid Margin="0 30 0 0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+                                </Border>
+                            </TabItem>
+                        </TabControl>
+                    </Border>
+                </materialDesign:Card>
+                <materialDesign:Card Grid.Column="1"
+                                 Background="White"
+                                 Margin="15 0 0 0"
+                                 materialDesign:ElevationAssist.Elevation="Dp0"
+                                 BorderBrush="{x:Null}"
+                                 UniformCornerRadius="15">
+                    <Border Padding="15 10 15 10">
+                        <TabControl HorizontalContentAlignment="Left">
+                            <TabItem Header="Kontakte"
+                                 Height="40"
+                                 Margin="0 0 15 0">
+                                <Border Margin="-1 0 0 0" 
+                                    BorderThickness="0,1,0,0" 
+                                    BorderBrush="#F2F2F2">
+                                    <Grid Margin="0 30 0 0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <materialDesign:Card Grid.Column="0"
+                                                             BorderBrush="{x:Null}"
+                                                             materialDesign:ElevationAssist.Elevation="Dp0"
+                                                             UniformCornerRadius="0"
+                                                             Background="#BCBCBC"
+                                                             Height="50"
+                                                             Width="50">
+                                                <materialDesign:PackIcon Kind="UserOutline"      
+                                                                     Foreground="White"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"
+                                                                     Width="27"
+                                                                     Height="27"/>
+                                            </materialDesign:Card>
+                                            <Grid Grid.Column="1"
+                                              Margin="20 0 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0"
+                                                   FontSize="16" 
+                                                   FontFamily="{StaticResource RobotoMedium}"
+                                                   HorizontalAlignment="Left"
+                                                   Foreground="Black"
+                                                   VerticalAlignment="Center">
+                                                    Adolf Stanmayer
+                                                </Label>
+                                                <Label Grid.Row="1"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Left"
+                                                   Foreground="Black"
+                                                   VerticalAlignment="Center">
+                                                    Test
+                                                </Label>
+                                            </Grid>
+                                            <Grid Grid.Column="3"
+                                              Margin="20 0 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Right"
+                                                   Foreground="#5245E5"
+                                                   VerticalAlignment="Center">
+                                                    +41792511522
+                                                </Label>
+                                                <Label Grid.Row="1"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Right"
+                                                   Foreground="#5245E5"
+                                                   VerticalAlignment="Center">
+                                                    qwdeqa@gmail.com
+                                                </Label>
+                                            </Grid>
+                                            <Button Grid.Column="4"
+                                                Height="16"
+                                                Width="16"
+                                                Background="White"
+                                                Cursor="Hand" 
+                                                materialDesign:ElevationAssist.Elevation="Dp0"
+                                                BorderBrush="{x:Null}"
+                                                Padding="0">
+                                                <materialDesign:PackIcon Kind="MoreVert"      
+                                                                     Foreground="#D9D9D9"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Left"
+                                                                     Width="16"
+                                                                     Height="16"/>
+                                            </Button>
+                                        </Grid>
+                                        <Separator Grid.Row="1"
+                                               Height="4"
+                                               Width="Auto"
+                                               HorizontalAlignment="Stretch"
+                                               VerticalAlignment="Bottom"                   
+                                               Background="#BCBCBC"
+                                               Margin="0 15 0 15"/>
+                                        <Grid Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <materialDesign:Card Grid.Column="0"
+                                                             BorderBrush="{x:Null}"
+                                                             materialDesign:ElevationAssist.Elevation="Dp0"
+                                                             UniformCornerRadius="0"
+                                                             Background="#BCBCBC"
+                                                             Height="50"
+                                                             Width="50">
+                                                <materialDesign:PackIcon Kind="UserOutline"      
+                                                                     Foreground="White"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"
+                                                                     Width="27"
+                                                                     Height="27"/>
+                                            </materialDesign:Card>
+                                            <Grid Grid.Column="1"
+                                              Margin="20 0 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0"
+                                                   FontSize="16" 
+                                                   FontFamily="{StaticResource RobotoMedium}"
+                                                   HorizontalAlignment="Left"
+                                                   Foreground="Black"
+                                                   VerticalAlignment="Center">
+                                                    Adolf Stanmayer
+                                                </Label>
+                                                <Label Grid.Row="1"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Left"
+                                                   Foreground="Black"
+                                                   VerticalAlignment="Center">
+                                                    Test
+                                                </Label>
+                                            </Grid>
+                                            <Grid Grid.Column="3"
+                                              Margin="20 0 0 0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Right"
+                                                   Foreground="#5245E5"
+                                                   VerticalAlignment="Center">
+                                                    +41792511522
+                                                </Label>
+                                                <Label Grid.Row="1"
+                                                   FontSize="14" 
+                                                   FontFamily="{StaticResource RobotoRegular}"
+                                                   HorizontalAlignment="Right"
+                                                   Foreground="#5245E5"
+                                                   VerticalAlignment="Center">
+                                                    qwdeqa@gmail.com
+                                                </Label>
+                                            </Grid>
+                                            <Button Grid.Column="4"
+                                                Height="16"
+                                                Width="16"
+                                                Background="White"
+                                                Cursor="Hand" 
+                                                materialDesign:ElevationAssist.Elevation="Dp0"
+                                                BorderBrush="{x:Null}"
+                                                Padding="0">
+                                                <materialDesign:PackIcon Kind="MoreVert"      
+                                                                     Foreground="#D9D9D9"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Left"
+                                                                     Width="16"
+                                                                     Height="16"/>
+                                            </Button>
+                                        </Grid>
+                                        <Separator Grid.Row="3"
+                                               Height="4"
+                                               Width="Auto"
+                                               HorizontalAlignment="Stretch"
+                                               VerticalAlignment="Bottom"                   
+                                               Background="#BCBCBC"
+                                               Margin="0 15 0 15"/>
+                                        <Button Grid.Row="4"
+                                            Margin="0 10 0 0"
+                                            Height="50"
+                                            Width="200"
+                                            HorizontalAlignment="Left"
+                                            materialDesign:ElevationAssist.Elevation="Dp0"
+                                            BorderBrush="{x:Null}">
+                                            <Label FontSize="16" 
+                                               FontFamily="{StaticResource RobotoMedium}"
+                                               HorizontalAlignment="Right"
+                                               Foreground="White"
+                                               VerticalAlignment="Center">
+                                                Kontakt hinzufügen
+                                            </Label>
+                                        </Button>
+                                    </Grid>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="Zusatzadressen"
+                                 Height="40">
+                                <Border Margin="-1 0 0 0" 
+                                    BorderThickness="0,1,0,0" 
+                                    BorderBrush="#F2F2F2">
+                                    <Grid Margin="0 30 0 0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+                                </Border>
+                            </TabItem>
+                        </TabControl>
+                    </Border>
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Row="3">
+                <materialDesign:Card Background="White"
+                                     materialDesign:ElevationAssist.Elevation="Dp0"
+                                     BorderBrush="{x:Null}"
+                                     UniformCornerRadius="15">
+                    <Border Padding="15 10 15 10">
+                        <TabControl HorizontalContentAlignment="Left">
+                            <TabItem Header="Notizen"
+                                 Height="40"
+                                 Margin="0 0 15 0">
+                                <Border Margin="-1 0 0 0"  
+                                    BorderThickness="0,1,0,0" 
+                                    BorderBrush="#F2F2F2">
+                                    <TextBlock Margin="0 30 0 0"
+                                           FontSize="16" 
+                                           FontFamily="{StaticResource RobotoRegular}"
+                                           HorizontalAlignment="Left"
+                                           Foreground="Black"
+                                           VerticalAlignment="Center"
+                                           TextWrapping="Wrap">
+                                    Aliquet ac leo proin blandit quisque viverra est tellus. Mi pretium quam sit pharetra habitant convallis cras sed. Risus platea accumsan ipsum elementum elementum ornare placerat ullamcorper urna. Vitae enim nec cras diam. Faucibus pharetra sodales nulla in. Egestas id quis duis convallis tellus. Pretium placerat nec dui dictum tempor lectus netus vestibulum blandit. Morbi mauris odio venenatis eleifend vel cum porta lacus sit.
+
+                                    </TextBlock>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="Aufträge"
+                                 Height="40"
+                                 Margin="0 0 15 0">
+                                <Border Margin="-1 0 0 0" 
+                                    BorderThickness="0,1,0,0" 
+                                    BorderBrush="#F2F2F2">
+                                    <Grid Margin="0 30 0 0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="Rechnungen" 
+                                 Height="40"
+                                 Margin="0 0 15 0">
+                                <Border Margin="-1 0 0 0" 
+                                    BorderThickness="0,1,0,0" 
+                                    BorderBrush="#F2F2F2">
+                                    <Grid Margin="0 30 0 0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="Dateien" 
+                                 Height="40">
+                                <Border Margin="-1 0 0 0" 
+                                    BorderThickness="0,1,0,0" 
+                                    BorderBrush="#F2F2F2">
+                                    <Grid Margin="0 30 0 0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+                                </Border>
+                            </TabItem>
+                        </TabControl>
+                    </Border>
+                </materialDesign:Card>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
 </Window>
